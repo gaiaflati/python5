@@ -8,8 +8,8 @@ utenti = [['mario', 'password1', '1', '1'],
 
 
 @api.route('/', methods=['GET'])
-def index():
-    return render_template('index.html')
+def home():
+    return render_template('home.html')
 
 @api.route('/regok', methods=['GET'])
 def regOk():
@@ -58,10 +58,18 @@ def accedi():
                 render_str = "<html><body>" + sesso +"</body></html>"
                 return render_str
     
-    return render_template('reg_ko.html')  
-    
+    return render_template('reg_ko.html')
+@api.route('/reg', methods=['GET'])  
+def reg():
+    return render_template('index.html')
+
+
 @api.route('/login', methods=['GET'])
 def login():
     return render_template('login.html')
+
+@api.route('/index', methods=['GET'])
+def index():
+    return render_template('index.html')
 
 api.run(host="0.0.0.0",port=8085)
